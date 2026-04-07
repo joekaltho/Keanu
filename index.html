@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Keanu Media - Digital Ads & Web Design Agency. We turn ads into sales with high-converting landing pages and performance-driven Facebook & Instagram campaigns.">
+    <title>Keanu Media | Ads & Web Design Agency</title>
+    <!-- Google Fonts + Font Awesome CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0F;
+            color: #F0F0F8;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Neon Gradient Accents */
+        :root {
+            --bg-dark: #0A0A0F;
+            --card-bg: #111218;
+            --border-dim: #1E1F2A;
+            --neon-blue: #00f3ff;
+            --neon-green: #39ff14;
+            --gradient-primary: linear-gradient(135deg, #00f3ff, #39ff14);
+            --gradient-blue: linear-gradient(120deg, #00c6ff, #0072ff);
+            --text-light: #EFF1F5;
+            --text-muted: #A0A5B5;
+        }
+
+        /* Custom scroll */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #14161F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-blue);
+            border-radius: 10px;
+        }
+
+        /* smooth sections offset for sticky header */
+        section, footer {
+            scroll-margin-top: 85px;
+        }
+
+        /* Global container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 18px 0;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px rgba(0,243,255,0.6);
+        }
+
+        /* Buttons & UI */
+        .btn-primary, .btn-secondary, .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #0A0A0F;
+            box-shadow: 0 4px 15px rgba(0,243,255,0.25);
+        }
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(57,255,20,0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid var(--neon-blue);
+            color: var(--neon-blue);
+        }
+        .btn-secondary:hover {
+            background: rgba(0,243,255,0.1);
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+        }
+        .btn-wa {
+            background: #25D366;
+            color: #0A0A0F;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+        }
+        .btn-wa i {
+            font-size: 1.2rem;
+        }
+        .btn-wa:hover {
+            background: #20b859;
+            transform: translateY(-2px);
+        }
+
+        /* section headings */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(130deg, #ffffff, var(--neon-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: -1rem auto 3rem auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 100px;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #fff, var(--neon-blue), var(--neon-green));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Cards (services, why us) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .service-card, .stat-card, .why-card, .portfolio-card {
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 32px 24px;
+            border: 1px solid var(--border-dim);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+        .service-card:hover, .why-card:hover, .portfolio-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(0,243,255,0.2);
+        }
+        .service-icon, .why-icon {
+            font-size: 2.8rem;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .service-card h3, .why-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+        .service-card p, .why-card p {
+            color: var(--text-muted);
+        }
+
+        /* stats cards - results */
+        .stat-card {
+            text-align: center;
+            background: rgba(17, 18, 24, 0.8);
+            border-bottom: 3px solid var(--neon-blue);
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-weight: 500;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .portfolio-card {
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+            background: #0E0F16;
+        }
+        .portfolio-img {
+            height: 180px;
+            background: linear-gradient(145deg, #1a1c28, #0C0D12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--neon-blue);
+            transition: 0.3s;
+        }
+        .portfolio-card:hover .portfolio-img {
+            background: linear-gradient(145deg, #00f3ff20, #39ff1420);
+        }
+        .portfolio-info {
+            padding: 20px 16px 24px;
+        }
+        .portfolio-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        .portfolio-info p {
+            font-size: 0.85rem;
+            color: var(--neon-green);
+            font-weight: 500;
+        }
+
+        /* CTA + Contact */
+        .cta-section {
+            background: linear-gradient(120deg, #0C0D18, #0A0A0F);
+            border-radius: 48px;
+            margin: 60px 0;
+            padding: 64px 32px;
+            text-align: center;
+            border: 1px solid rgba(0,243,255,0.2);
+        }
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid var(--border-dim);
+        }
+        .contact-form {
+            flex: 1.5;
+        }
+        .contact-wa {
+            flex: 1;
+            background: rgba(0,0,0,0.3);
+            border-radius: 28px;
+            padding: 32px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border: 1px dashed var(--neon-green);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: #12131C;
+            border: 1px solid #262836;
+            border-radius: 24px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            transition: 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 0 2px rgba(0,243,255,0.2);
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: var(--gradient-primary);
+            width: 100%;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 48px 0 32px;
+            border-top: 1px solid rgba(0,243,255,0.15);
+            margin-top: 40px;
+            text-align: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin: 20px 0;
+        }
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.6rem;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: var(--neon-blue);
+            transform: translateY(-3px);
+        }
+        .footer small {
+            color: #5A5F73;
+            font-size: 0.8rem;
+        }
+
+        /* Fade-in animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .contact-wrapper {
+                flex-direction: column;
+                padding: 28px;
+            }
+            .header .container {
+                flex-direction: column;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">KEANU MEDIA</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-content fade-up">
+            <h1>We Turn Ads Into Sales</h1>
+            <p>High-performance Facebook & Instagram ads + conversion-focused websites. Scale your revenue with data-driven campaigns and landing pages built to convert.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary" id="heroWhatsAppBtn"><i class="fab fa-whatsapp"></i> Get More Customers</a>
+                <a href="#portfolio" class="btn-secondary">View Our Work <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title fade-up">Performance-driven services</h2>
+            <div class="grid-3">
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Ads Management</h3>
+                    <p>Facebook & Instagram Ads managed by experts. Audience targeting, A/B testing, and creative optimization to lower CAC and boost ROAS.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Creative Design</h3>
+                    <p>Scroll-stopping ad creatives, branding, and visual identity that resonates with your audience and drives clicks.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Landing Pages</h3>
+                    <p>High-converting, lightning-fast landing pages built for ad traffic. Optimized for mobile & desktop to maximize conversions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Stats Section -->
+    <section id="results">
+        <div class="container">
+            <h2 class="section-title fade-up">Real results that matter</h2>
+            <p class="section-sub fade-up">We don't just run ads — we engineer growth. Check our impact on real brands.</p>
+            <div class="grid-3">
+                <div class="stat-card fade-up">
+                    <div class="stat-number">+156%</div>
+                    <div class="stat-label">Increased engagement rate</div>
+                    <small style="color: var(--neon-green);">↑ Facebook & IG</small>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-number">+89%</div>
+                    <div class="stat-label">Improved conversions</div>
+                    <small style="color: var(--neon-green);">Landing page CVR</small>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-number">-42%</div>
+                    <div class="stat-label">Cost per lead reduction</div>
+                    <small style="color: var(--neon-green);">Smart retargeting</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title fade-up">Recent projects & ad creatives</h2>
+            <p class="section-sub fade-up">Websites, ads, and designs that drive measurable results.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-card fade-up">
+                    <div class="portfolio-img"><i class="fas fa-laptop-code"></i></div>
+                    <div class="portfolio-info">
+                        <h4>Fitness Empire</h4>
+                        <p>High-converting landing page + FB ads</p>
+                    </div>
+                </div>
+                <div class="portfolio-card fade-up">
+                    <div class="portfolio-img"><i class="fas fa-ad"></i></div>
+                    <div class="portfolio-info">
+                        <h4>Neon Drop Collection</h4>
+                        <p>IG ads creative (3.2x ROAS)</p>
+                    </div>
+                </div>
+                <div class="portfolio-card fade-up">
+                    <div class="portfolio-img"><i class="fas fa-store"></i></div>
+                    <div class="portfolio-info">
+                        <h4>Urban Store</h4>
+                        <p>Shopify + dynamic product ads</p>
+                    </div>
+                </div>
+                <div class="portfolio-card fade-up">
+                    <div class="portfolio-img"><i class="fas fa-chart-simple"></i></div>
+                    <div class="portfolio-info">
+                        <h4>SaaS Launch Kit</h4>
+                        <p>Lead generation funnel & carousel ads</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us">
+        <div class="container">
+            <h2 class="section-title fade-up">Why choose Keanu Media</h2>
+            <div class="grid-3">
+                <div class="why-card fade-up">
+                    <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Fast delivery</h3>
+                    <p>From audit to launch in days, not months. We move at startup speed without compromising quality.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon"><i class="fas fa-chart-simple"></i></div>
+                    <h3>Conversion-focused design</h3>
+                    <p>Every pixel is built for one purpose: turning visitors into paying customers.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Client-centered approach</h3>
+                    <p>Transparent reporting, weekly insights, and a partnership that prioritizes your growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section (WhatsApp strong) -->
+    <div class="container">
+        <div class="cta-section fade-up">
+            <h2>Ready to Grow Your Business?</h2>
+            <p style="margin-bottom: 28px; color: var(--text-muted);">Let's scale your brand with ads that sell & websites that convert.</p>
+            <a href="#" class="btn-wa" id="ctaWhatsAppBtn" style="font-size: 1.1rem; padding: 14px 38px;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp →</a>
+        </div>
+    </div>
+
+    <!-- Contact Section + WhatsApp button -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title fade-up">Let’s talk business</h2>
+            <div class="contact-wrapper fade-up">
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px;">Send us a message</h3>
+                    <form id="leadForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Full name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email address *" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Tell us about your project or ad goals... *" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary submit-btn"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                    </form>
+                </div>
+                <div class="contact-wa">
+                    <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25D366;"></i>
+                    <h3>Prefer instant chat?</h3>
+                    <p>Get a reply within 2 hours</p>
+                    <a href="#" class="btn-wa" id="sidebarWhatsAppBtn" style="padding: 12px 24px;"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <small>collaborated with Kaltrix — © 2025 Keanu Media. Elivate your brand.</small><br>
+        <small style="font-size: 0.7rem;">the best brand building solutions</small>
+    </div>
+</footer>
+
+<script>
+    // ========================
+    // PLACEHOLDER WHATSAPP NUMBER (replace with real number for production)
+    const WHATSAPP_NUMBER = "+2347073609702";
+    // ========================
+
+    // Helper: open WhatsApp with prefilled text
+    function openWhatsApp(text) {
+        if (!WHATSAPP_NUMBER) return;
+        const encodedMsg = encodeURIComponent(text);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+        window.open(url, '_blank');
+    }
+
+    // Hero, CTA, sidebar WhatsApp direct buttons (simple "Hi, I'm interested in growing my business")
+    const heroBtn = document.getElementById('heroWhatsAppBtn');
+    const ctaBtn = document.getElementById('ctaWhatsAppBtn');
+    const sideBtn = document.getElementById('sidebarWhatsAppBtn');
+
+    const directMessage = "Hi Keanu Media! I'd love to grow my business with high-converting ads & websites. Let's talk! 🚀";
+    function directWhatsAppHandler(e) {
+        e.preventDefault();
+        openWhatsApp(directMessage);
+    }
+    if (heroBtn) heroBtn.addEventListener('click', directWhatsAppHandler);
+    if (ctaBtn) ctaBtn.addEventListener('click', directWhatsAppHandler);
+    if (sideBtn) sideBtn.addEventListener('click', directWhatsAppHandler);
+
+    // Contact form: generate lead details and send via WhatsApp
+    const leadForm = document.getElementById('leadForm');
+    if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert("❌ Please fill in all fields (name, email, message)");
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                alert("⚠️ Please enter a valid email address.");
+                return;
+            }
+
+            const whatsappLeadText = `*New Lead from Keanu Media website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}%0A%0A📢 Looking for ads & web design services.`;
+            openWhatsApp(whatsappLeadText);
+            // reset form optionally
+            leadForm.reset();
+        });
+    }
+
+    // Intersection Observer for fade-in animations (modern smooth reveal)
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // once visible, no need to re-observe
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Optional: small additional glow to stat cards on load
+    // Smooth navigation offset handled via CSS scroll-margin-top (already defined)
+    // Add additional header link smooth behavior + prevent default for hash links
+    document.querySelectorAll('.nav-links a, .hero-buttons .btn-secondary').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = 85;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // Preload initial visible fade-up class for hero to show instantly
+    window.addEventListener('load', () => {
+        const heroFade = document.querySelector('.hero .fade-up');
+        if (heroFade) heroFade.classList.add('visible');
+        // set minor animation for any element visible on load
+        fadeElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+                observer.unobserve(el);
+            }
+        });
+    });
+</script>
+</body>
+</html>
