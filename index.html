@@ -400,6 +400,11 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .logo img {
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.5));
+}
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -429,7 +434,9 @@
 
 <header class="header">
     <div class="container">
-        <div class="logo">KEANU MEDIA</div>
+       <div class="logo">
+    <img src="logo.jpeg" alt="Keanu Media Logo">
+</div>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#portfolio">Work</a>
